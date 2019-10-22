@@ -1,0 +1,1 @@
+{ "dirs" : [ "pages" , "src" , "src/components" ] , "pkgs" : [ [ "bs-platform" , "/Users/masiuciszek/web-dev/webProjects/my-blog/node_modules/bs-platform" ] , [ "reason-react" , "/Users/masiuciszek/web-dev/webProjects/my-blog/node_modules/reason-react" ] ] , "generated" : [] }
