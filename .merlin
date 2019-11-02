@@ -10,4 +10,8 @@ S /Users/masiuciszek/web-dev/webProjects/my-blog/node_modules/reason-react/lib/o
 B /Users/masiuciszek/web-dev/webProjects/my-blog/node_modules/reason-react/lib/ocaml
 S pages
 B lib/bs/pages
+S src/bindings
+B lib/bs/src/bindings
+S src/components
+B lib/bs/src/components
 ####BSB GENERATED: NO EDIT}

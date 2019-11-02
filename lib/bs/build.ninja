@@ -9,13 +9,13 @@ ppx_flags =
 g_dpkg_incls = 
 g_ns = -bs-ns MyBlog
 bsb_dir_group = 0
-g_lib_incls = -I . -I pages -I /Users/masiuciszek/web-dev/webProjects/my-blog/node_modules/reason-react/lib/ocaml
+g_lib_incls = -I . -I src/components -I src/bindings -I pages -I /Users/masiuciszek/web-dev/webProjects/my-blog/node_modules/reason-react/lib/ocaml
 rule build_ast_from_re
   command = $bsc  $warnings -color always -bs-jsx 3 $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/Bye.reast : build_ast_from_re $src_root_dir/pages/Bye.re
 rule build_deps
-  command = $bsdep -hash c7a17e25e704aea7a4db8bcefdd5d853 $g_ns -g $bsb_dir_group $in
+  command = $bsdep -hash 61066be1ac905dc48fd77bc6df9381d3 $g_ns -g $bsb_dir_group $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/Bye.d : build_deps pages/Bye.reast
@@ -30,6 +30,14 @@ build  pages/Hello.reast : build_ast_from_re $src_root_dir/pages/Hello.re
 build  pages/Hello.d : build_deps pages/Hello.reast
 build  pages/Hello-MyBlog.cmj |  pages/Hello-MyBlog.cmi $src_root_dir/pages/Hello.bs.js : ml_cmj_cmi pages/Hello.reast ||  pages/Hello.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
+build  src/bindings/Next.reast : build_ast_from_re $src_root_dir/src/bindings/Next.re
+build  src/bindings/Next.d : build_deps src/bindings/Next.reast
+build  src/bindings/Next-MyBlog.cmj |  src/bindings/Next-MyBlog.cmi $src_root_dir/src/bindings/Next.bs.js : ml_cmj_cmi src/bindings/Next.reast ||  src/bindings/Next.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/bindings
+build  src/components/Page.reast : build_ast_from_re $src_root_dir/src/components/Page.re
+build  src/components/Page.d : build_deps src/components/Page.reast
+build  src/components/Page-MyBlog.cmj |  src/components/Page-MyBlog.cmi $src_root_dir/src/components/Page.bs.js : ml_cmj_cmi src/components/Page.reast ||  src/components/Page.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components
 rule build_package
   command = $bsc -w -49 -color always -no-alias-deps  $in
   restat = 1
