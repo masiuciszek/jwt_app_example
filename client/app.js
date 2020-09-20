@@ -89,6 +89,7 @@
 
   logoutBtn.addEventListener("click", async () => {
     window.localStorage.clear();
+    ACCESS_TOKEN = "";
   });
 
   usersBtn.addEventListener("click", async () => {
