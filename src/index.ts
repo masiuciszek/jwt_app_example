@@ -9,7 +9,7 @@ import { users } from "./controllers/auth.controller";
 
 const app: Application = express();
 
-const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors());

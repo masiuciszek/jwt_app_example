@@ -22,8 +22,7 @@ export const getResourcesSecrest = (
 ) => {
   try {
     res.status(200).json({
-      msg:
-        "Secret resource , you have to be authenticated to access  this route",
+      msg: "Secret resource , welcome master",
     });
   } catch (err) {
     console.log(err, "server error!!!");
