@@ -87,7 +87,9 @@
     ACCESS_TOKEN = token;
   });
 
-  logoutBtn.addEventListener("click", async () => {});
+  logoutBtn.addEventListener("click", async () => {
+    window.localStorage.clear();
+  });
 
   usersBtn.addEventListener("click", async () => {
     const users = await handleData("");
