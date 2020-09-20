@@ -1,7 +1,9 @@
 import express, { Application } from "express";
 import cookieparser from "cookie-parser";
-import { router as authRotes } from "./routes";
+import { router as authRoutes } from "./routes/auth.routes";
+import { router as resourceRoutes } from "./routes/resource.routes";
 import cors from "cors";
+
 import "dotenv/config";
 import { users } from "./controllers/auth.controller";
 
@@ -19,12 +21,9 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {});
 
-app.get("*", (req, res) => {
-  res.sendStatus(404);
-});
-
-app.use("/api/auth", authRotes);
+app.use("/api/auth", authRoutes);
+app.use("/api/resources", resourceRoutes);
 
 app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+  console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 });
